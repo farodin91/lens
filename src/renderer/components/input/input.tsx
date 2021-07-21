@@ -75,7 +75,6 @@ const defaultProps: Partial<InputProps> = {
   maxRows: 10000,
   showValidationLine: true,
   validators: [],
-  defaultValue: "",
 };
 
 export class Input extends React.Component<InputProps, State> {
@@ -106,7 +105,7 @@ export class Input extends React.Component<InputProps, State> {
 
   getValue(): string {
     const { trim, value, defaultValue } = this.props;
-    const rawValue = value ?? this.input?.value ?? defaultValue;
+    const rawValue = value ?? this.input?.value ?? defaultValue ?? "";
 
     return trim ? rawValue.trim() : rawValue;
   }
